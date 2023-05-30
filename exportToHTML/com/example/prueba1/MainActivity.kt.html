@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.prueba1</span>
+
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.widget.Button</span>
+<span class="s1">import android.widget.EditText</span>
+<span class="s1">import android.widget.TextView</span>
+
+<span class="s0">class </span><span class="s1">MainActivity : AppCompatActivity() {</span>
+
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">edtNumero1 : EditText</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">edtNumero2 : EditText</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">btnsumar : Button</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">btnrestar : Button</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">btnmulti : Button</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">btndiv : Button</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">txtResultado : TextView</span>
+
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span>
+
+        <span class="s1">edtNumero1 = findViewById(R.id.n1)</span>
+        <span class="s1">edtNumero2 = findViewById(R.id.n2)</span>
+        <span class="s1">btnsumar = findViewById(R.id.sumar)</span>
+        <span class="s1">btnrestar = findViewById(R.id.restar)</span>
+        <span class="s1">btnmulti = findViewById(R.id.multi)</span>
+        <span class="s1">btndiv = findViewById(R.id.div)</span>
+        <span class="s1">txtResultado = findViewById(R.id.resultado)</span>
+
+        <span class="s1">btnsumar.setOnClickListener(View.OnClickListener {</span>
+            <span class="s0">val </span><span class="s1">num1 = Integer.parseInt(edtNumero1.text.toString())</span>
+            <span class="s0">val </span><span class="s1">num2 = Integer.parseInt(edtNumero2.text.toString())</span>
+
+            <span class="s1">txtResultado.setText(</span><span class="s2">&quot;Resultado: &quot; </span><span class="s1">+ sumar(num1</span><span class="s0">, </span><span class="s1">num2))</span>
+        <span class="s1">})</span>
+
+        <span class="s1">btnrestar.setOnClickListener(View.OnClickListener {</span>
+            <span class="s0">val </span><span class="s1">num1 = Integer.parseInt(edtNumero1.text.toString())</span>
+            <span class="s0">val </span><span class="s1">num2 = Integer.parseInt(edtNumero2.text.toString())</span>
+
+            <span class="s1">txtResultado.setText(</span><span class="s2">&quot;Resultado: &quot; </span><span class="s1">+ restar(num1</span><span class="s0">, </span><span class="s1">num2))</span>
+        <span class="s1">})</span>
+
+        <span class="s1">btnmulti.setOnClickListener(View.OnClickListener {</span>
+            <span class="s0">val </span><span class="s1">num1 = Integer.parseInt(edtNumero1.text.toString())</span>
+            <span class="s0">val </span><span class="s1">num2 = Integer.parseInt(edtNumero2.text.toString())</span>
+
+            <span class="s1">txtResultado.setText(</span><span class="s2">&quot;Resultado: &quot; </span><span class="s1">+ multi(num1</span><span class="s0">, </span><span class="s1">num2))</span>
+        <span class="s1">})</span>
+
+        <span class="s1">btndiv.setOnClickListener(View.OnClickListener {</span>
+            <span class="s0">val </span><span class="s1">num1 = Integer.parseInt(edtNumero1.text.toString())</span>
+            <span class="s0">val </span><span class="s1">num2 = Integer.parseInt(edtNumero2.text.toString())</span>
+
+            <span class="s1">txtResultado.setText(</span><span class="s2">&quot;Resultado: &quot; </span><span class="s1">+ div(num1</span><span class="s0">, </span><span class="s1">num2))</span>
+        <span class="s1">})</span>
+
+
+    <span class="s1">}</span>
+
+    <span class="s0">fun </span><span class="s1">sumar(n1: Int</span><span class="s0">, </span><span class="s1">n2: Int) : Int {</span>
+        <span class="s0">return </span><span class="s1">n1 + n2</span>
+    <span class="s1">}</span>
+    <span class="s0">fun </span><span class="s1">restar(n1: Int</span><span class="s0">, </span><span class="s1">n2: Int) : Int {</span>
+        <span class="s0">return </span><span class="s1">n1 - n2</span>
+    <span class="s1">}</span>
+    <span class="s0">fun </span><span class="s1">multi(n1: Int</span><span class="s0">, </span><span class="s1">n2: Int) : Int {</span>
+        <span class="s0">return </span><span class="s1">n1 * n2</span>
+    <span class="s1">}</span>
+    <span class="s0">fun </span><span class="s1">div(n1: Int</span><span class="s0">, </span><span class="s1">n2: Int) : Any {</span>
+        <span class="s0">if </span><span class="s1">(n2 == </span><span class="s3">0</span><span class="s1">){</span>
+            <span class="s0">return </span><span class="s2">&quot;infinito&quot;</span>
+        <span class="s1">}</span>
+        <span class="s0">return if </span><span class="s1">(n1 &gt; n2){</span>
+            <span class="s1">n1 / n2</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">String.format(</span><span class="s2">&quot;%.2f&quot;</span><span class="s0">, </span><span class="s1">n1.toDouble() / n2.toDouble())</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>
